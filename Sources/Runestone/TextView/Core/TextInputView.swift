@@ -1101,7 +1101,7 @@ extension TextInputView {
         var preparedText = prepareTextForInsertion(text)
 
 		if !indentStrategy.isTab {
-			preparedText = preparedText.replacingOccurrences(of: Symbol.tab, with: indentStrategy.string(indentLevel: indentStrategy.tabLength))
+			preparedText = preparedText.replacingOccurrences(of: Symbol.tab, with: indentStrategy.string(indentLevel: 1))
 		}
 
         isRestoringPreviouslyDeletedText = hasDeletedTextWithPendingLayoutSubviews
