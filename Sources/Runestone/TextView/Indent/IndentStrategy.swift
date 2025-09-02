@@ -9,7 +9,7 @@ public enum IndentStrategy: Equatable {
 }
 
 extension IndentStrategy {
-    var tabLength: Int {
+	public var tabLength: Int {
         switch self {
         case .tab(let length):
             return length
@@ -18,7 +18,7 @@ extension IndentStrategy {
         }
     }
 
-    func string(indentLevel: Int) -> String {
+	public func string(indentLevel: Int) -> String {
         switch self {
         case .tab:
             return String(repeating: Symbol.Character.tab, count: indentLevel)
@@ -28,7 +28,7 @@ extension IndentStrategy {
     }
 	
 	/// 是否是 Tab 缩进
-	var isTab: Bool {
+	public var isTab: Bool {
 		if case .tab = self { return true }
 		return false
 	}
