@@ -1098,7 +1098,12 @@ extension TextInputView {
 // MARK: - Editing
 extension TextInputView {
     func insertText(_ text: String) {
-        let preparedText = prepareTextForInsertion(text)
+        var preparedText = prepareTextForInsertion(text)
+
+		if !indentStrategy.isTab {
+			preparedText = preparedText.replacingOccurrences(of: Symbol.tab, with: indentStrategy.string(indentLevel: indentStrategy.tabLength))
+		}
+
         isRestoringPreviouslyDeletedText = hasDeletedTextWithPendingLayoutSubviews
         hasDeletedTextWithPendingLayoutSubviews = false
         defer {

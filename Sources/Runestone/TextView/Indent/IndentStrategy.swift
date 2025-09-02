@@ -26,4 +26,10 @@ extension IndentStrategy {
             return String(repeating: Symbol.Character.space, count: length * indentLevel)
         }
     }
+	
+	/// 是否是 Tab 缩进
+	var isTab: Bool {
+		if case .tab = self { return true }
+		return false
+	}
 }
